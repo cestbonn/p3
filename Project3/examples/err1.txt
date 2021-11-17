@@ -8,7 +8,7 @@ class myTest
 	enddeclarations
 	method void main()
 	{
-	/* nothing */	
+	x.this := 1;	
 	}
 	method int func(int m, n)
 	declarations
