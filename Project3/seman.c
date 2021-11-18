@@ -257,7 +257,7 @@ void varop(tree node, int declop)/* 1 if called by declop, 2 if called by routin
 	    return;
 	  else
 	    {error_msg(FIELD_MIS, CONTINUE, IntVal(LeftChild(LeftChild(rchild))), 0);return;}}
-      else if (st_ind0=IntVal(temp)){nest0 = GetAttr(st_ind0, NEST_ATTR);}
+      else if (st_ind0==IntVal(temp)){nest0 = GetAttr(st_ind0, NEST_ATTR);}
       break;
     case PROCE:
     case FUNC:
