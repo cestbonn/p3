@@ -251,14 +251,14 @@ void varop(tree node, int declop)/* 1 if called by declop, 2 if called by routin
     case VAR:
       typeidop = (tree)GetAttr( st_ind0, TYPE_ATTR );
       temp     = (tree)LeftChild(typeidop);
-      if ( NodeKind(temp) == INTEGERTNode && IsNull(rchild)){break;}
-	  else if (NodeKind(temp) == INTEGERTNode)
-	  {
-	      /*printf("%s :", getname( GetAttr( st_ind0, NAME_ATTR) ));*/
-	      error_msg(FIELD_MIS, CONTINUE, IntVal(LeftChild(LeftChild(rchild))), 0);
-	      break;
-	  }
-      else if (st_ind0=IntVal(temp)){nest0 = GetAttr(st_ind0, NEST_ATTR);break;}
+      if ( NodeKind(temp) == INTEGERTNode )
+	{
+	  if ( IsNull(rchild) )
+	    return;
+	  else
+	    {error_msg(FIELD_MIS, CONTINUE, IntVal(LeftChild(LeftChild(rchild))), 0);return;}}
+      else if (st_ind0=IntVal(temp)){nest0 = GetAttr(st_ind0, NEST_ATTR);}
+      break;
     case PROCE:
     case FUNC:
       if ( IsNull(rchild) )
